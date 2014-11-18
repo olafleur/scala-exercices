@@ -95,7 +95,7 @@ object MyModule {
 
     println(List.init(liste4))
 
-    val liste5 = List(1, 2, 3)
+    val liste5 = List(1, 2, 3, 4, 5)
 
     println(List.length(liste5))
   }
