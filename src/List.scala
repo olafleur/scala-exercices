@@ -69,7 +69,10 @@ object List {
       else l
   }
 
-  def init[A](l: List[A]): List[A] = sys.error("todo")
+  def init[A](l: List[A]): List[A] = l match {
+    case Cons(a, Nil) => Nil
+    case Cons(a, as) => Cons(a, init(as))
+  }
 
   def length[A](l: List[A]): Int = sys.error("todo")
 
