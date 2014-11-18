@@ -46,7 +46,11 @@ object List {
   def product2(ns: List[Double]) =
     foldRight(ns, 1.0)(_ * _)
 
-  def tail[A](l: List[A]): List[A] = sys.error("todo")
+  def tail[A](l: List[A]): List[A] = l match {
+    case Nil => Nil //Pourrait être une erreur
+    case Cons(a, Nil) => Nil //Pas nécessaire
+    case Cons(a, as) => as
+  }
 
   def setHead[A](l: List[A], h: A): List[A] = sys.error("todo")
 
