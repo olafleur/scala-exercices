@@ -40,6 +40,22 @@ object MyModule {
     loop(1)
   }
 
+  def partial1[A, B, C](a: A, f: (A, B) => C): B => C = {
+    b => f(a, b)
+  }
+
+  def curry[A, B, C](f:(A, B) => C): A => (B => C) = {
+    a => b => f(a, b)
+  }
+
+  def uncurry[A, B, C](f: A => B => C): (A, B) => C = {
+    (a, b) => f(a)(b)
+  }
+
+  def compose[A, B, C](f: B => C, g: A => B): A => C = {
+    a => f(g(a))
+  }
+
   def main(args: Array[String]): Unit = {
     println(formatAbs(-42))
 
@@ -52,5 +68,15 @@ object MyModule {
     } else {
       println("Non trié")
     }
+
+    val func = partial1[Int, Int, String](3, (n, m) => (n + m).toString)
+
+    println(func(4))
+
+    val curryfied = curry[Int, Int, String]((n, m) => (n + m).toString)
+
+    println(curryfied(3)(4))
+
+    println(uncurry(curryfied)(3, 4))
   }
 }
