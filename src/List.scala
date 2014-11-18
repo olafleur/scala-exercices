@@ -59,10 +59,15 @@ object List {
 
   def drop[A](l: List[A], n: Int): List[A] = {
     if (n <= 0) l
-    else drop(List.tail(l), n - 1) //Aurrait pu utiliser Case Cons(_, t) à la place
+    else drop(List.tail(l), n - 1) //Aurait pu utiliser Case Cons(_, t) à la place
   }
 
-  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = sys.error("todo")
+  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
+    case Nil => Nil
+    case Cons(a, as) =>
+      if (f(a)) dropWhile(as, f)
+      else l
+  }
 
   def init[A](l: List[A]): List[A] = sys.error("todo")
 

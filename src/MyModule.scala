@@ -86,5 +86,9 @@ object MyModule {
     val liste2 = List(1, 2, 3, 4)
 
     println(List.drop(liste2, 2))
+
+    val liste3 = List(2, 4, 6, 8, 10, 13, 7, 8)
+
+    println(List.dropWhile(liste3, (a: Int) => a % 2 == 0))
   }
 }
