@@ -94,5 +94,9 @@ object MyModule {
     val liste4 = List(1, 2, 3, 4, 5, 6)
 
     println(List.init(liste4))
+
+    val liste5 = List(1, 2, 3)
+
+    println(List.length(liste5))
   }
 }

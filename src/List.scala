@@ -74,7 +74,10 @@ object List {
     case Cons(a, as) => Cons(a, init(as))
   }
 
-  def length[A](l: List[A]): Int = sys.error("todo")
+  def length[A](l: List[A]): Int = l match {
+    case Nil => 0
+    case Cons(a, as) => 1 + length(as)
+  }
 
   def foldLeft[A, B](l: List[A], z: B)(f: (B, A) => B): B = sys.error("todo")
 
