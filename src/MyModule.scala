@@ -22,13 +22,18 @@ object MyModule {
   }
 
   def fib(n: Int): Int = {
-    //TODO
-    0
+    def loop(acc: Int, m: Int, i: Int): Int = {
+      if (i == n) acc
+      else loop(m, m + acc, i + 1)
+    }
+    loop(0, 1, 1)
   }
 
   def main(args: Array[String]): Unit = {
     println(formatAbs(-42))
 
     println(factorial(5).toString)
+
+    println(fib(5))
   }
 }
