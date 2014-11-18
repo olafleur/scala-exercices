@@ -57,7 +57,10 @@ object List {
     case Cons(_, as) => Cons(h, as)
   }
 
-  def drop[A](l: List[A], n: Int): List[A] = sys.error("todo")
+  def drop[A](l: List[A], n: Int): List[A] = {
+    if (n <= 0) l
+    else drop(List.tail(l), n - 1) //Aurrait pu utiliser Case Cons(_, t) à la place
+  }
 
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = sys.error("todo")
 

@@ -78,5 +78,13 @@ object MyModule {
     println(curryfied(3)(4))
 
     println(uncurry(curryfied)(3, 4))
+
+    val liste = List.setHead(List(1, 2, 3), 4)
+
+    println(liste)
+
+    val liste2 = List(1, 2, 3, 4)
+
+    println(List.drop(liste2, 2))
   }
 }
