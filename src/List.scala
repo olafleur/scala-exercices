@@ -62,10 +62,10 @@ object List {
     else drop(List.tail(l), n - 1) //Aurait pu utiliser Case Cons(_, t) à la place
   }
 
-  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
+  def dropWhile[A](l: List[A])(f: A => Boolean): List[A] = l match {
     case Nil => Nil
     case Cons(a, as) =>
-      if (f(a)) dropWhile(as, f)
+      if (f(a)) dropWhile(as)(f)
       else l
   }
 
